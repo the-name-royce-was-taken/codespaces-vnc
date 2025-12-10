@@ -1,3 +1,10 @@
 {
-  "build": { "dockerfile": "Dockerfile" },
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "wm": "gnome"
+    }
+  },
+  "postCreateCommand": "sudo apt update && sudo apt install -y ubuntu-desktop gnome-session dbus-x11",
+  "postStartCommand": "vncserver :1 -geometry 1920x1080 -depth 24 || true"
 }
